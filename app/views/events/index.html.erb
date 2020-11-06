@@ -1,1 +1,26 @@
 <h1>All Events</h1>
+
+<% unless Event.upcoming.empty? %>
+  <h6>Upcoming events</h6>
+  <ul>
+    <% Event.upcoming.each do |event| %>
+      <li>
+        <p><%= event.location %></p>
+        <p><%= event.description %></p>
+        <p><%= event.event_date %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<% unless Event.past.empty? %>
+  <h6>Previous events</h6>
+  <ul>
+    <% Event.past.each do |event| %>
+      <li>
+        <p><%= event.location %></p>
+        <p><%= event.description %></p>
+        <p><%= event.event_date %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
