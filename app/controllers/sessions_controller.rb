@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:session][:username])
     if user
       session[:user_id] = user.id
-      redirect_to user
+      redirect_to root_path
     else
-      flash.now[:alert] = 'Username is invalid'
+      # flash.now[:alert] = 'Username is invalid'
       render 'new'
     end
   end
