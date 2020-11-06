@@ -13,7 +13,8 @@
         <%= msg %>
       </div>
     <% end %>
-    <p><%= current_user.username if signed_in?%></p>
+    <%= render 'layouts/header' %>
+    <p><%= 'Welcome, ' + current_user.username if signed_in?%></p>
     <%= yield %>
   </body>
 </html>
