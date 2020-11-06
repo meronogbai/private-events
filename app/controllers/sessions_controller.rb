@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      # flash.now[:alert] = 'Username is invalid'
-      render 'new'
+      flash[:alert] = 'Username is invalid'
+      redirect_back(fallback_location: root_url)
     end
   end
 
