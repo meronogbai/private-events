@@ -7,7 +7,6 @@ RSpec.describe 'Session', type: :system do
     end
     it 'logs in valid user' do
       fill_in 'session[username]', with: 'helloo'
-      sleep 7
     end
     it 'fills clicks submit button' do
       click_button 'commit'
