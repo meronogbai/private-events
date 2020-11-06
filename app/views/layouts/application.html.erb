@@ -13,6 +13,7 @@
         <%= msg %>
       </div>
     <% end %>
+    <p><%= current_user.username if signed_in?%></p>
     <%= yield %>
   </body>
 </html>
