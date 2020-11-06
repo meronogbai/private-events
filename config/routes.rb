@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   resources 'users', only: %i[new create show]
+  resources 'events', only: %i[index show]
   get 'signup', to: 'users#new'
   root 'landing#index'
 end
