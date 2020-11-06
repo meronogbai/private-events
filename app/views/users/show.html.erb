@@ -1,7 +1,26 @@
 <h1>Events Attending</h1>
 <h4><%= pluralize(@user.attended_events.count, 'Event')%></h4>
-<ul>
-  <% @user.attended_events.each do |event| %>
-    <li><%= event.location %></li>
-  <% end %>
-</ul>
+<% unless @user.upcoming_events.empty? %>
+  <h6>Upcoming events</h6>
+  <ul>
+    <% @user.upcoming_events.each do |event| %>
+      <li>
+        <p><%= event.location %></p>
+        <p><%= event.description %></p>
+        <p><%= event.event_date %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<% unless @user.previous_events.empty? %>
+  <h6>Previous events</h6>
+  <ul>
+    <% @user.previous_events.each do |event| %>
+      <li>
+        <p><%= event.location %></p>
+        <p><%= event.description %></p>
+        <p><%= event.event_date %></p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
