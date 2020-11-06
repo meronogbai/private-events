@@ -2,10 +2,10 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by(username: params[:username])
+    user = User.find_by(username: params[:session][:username])
     if user
       session[:user_id] = user.id
-      redirect_to root_url, notice: 'Logged in!'
+      redirect_to user
     else
       flash.now[:alert] = 'Username is invalid'
       render 'new'
