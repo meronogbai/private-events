@@ -1,26 +1,37 @@
-<h1>All Events</h1>
+<section class="my-4 text-center">
+  <p class="lead">
+    Welcome,
+    <strong>
+      <%= current_user.username if signed_in?%>
+      <%= 'Guest' if !signed_in?%>
+    </strong>
+  </p>
+</section>
 
-<% unless Event.upcoming.empty? %>
-  <h6>Upcoming events</h6>
-  <ul>
-    <% Event.upcoming.each do |event| %>
-      <li>
-        <p><%= event.location %></p>
-        <p><%= event.description %></p>
-        <p><%= event.event_date %></p>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-<% unless Event.past.empty? %>
-  <h6>Previous events</h6>
-  <ul>
-    <% Event.past.each do |event| %>
-      <li>
-        <p><%= event.location %></p>
-        <p><%= event.description %></p>
-        <p><%= event.event_date %></p>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<section>
+  <h1>All Events (<%= Event.all.count %>)</h1>
+  <% unless Event.upcoming.empty? %>
+    <div class="my-4">
+      <h3 class="text-info pb-2">Upcoming events</h3>
+      <div class="row">
+        <% Event.upcoming.each do |event| %>
+          <div class="col-md-6 col-lg-4 card shadow">
+            <%= render event %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <% unless Event.past.empty? %>
+    <div class="my-4">
+      <h3 class="text-warning">Previous events</h3>
+      <div class="row">
+        <% Event.past.each do |event| %>
+          <div class="col-md-6 col-lg-4 card shadow">
+            <%= render event %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</section>

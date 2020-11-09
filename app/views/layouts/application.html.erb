@@ -8,13 +8,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
     <% flash.each do |type, msg| %>
-      <div class="alert alert-info">
+      <div class="alert alert-info alert-dismissible fade show">
         <%= msg %>
       </div>
     <% end %>
-    <%= render 'layouts/header' %>
-    <p><%= 'Welcome, ' + current_user.username if signed_in?%></p>
     <%= yield %>
+    </div>
   </body>
 </html>
