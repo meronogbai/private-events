@@ -10,11 +10,11 @@
 
 <section>
   <h1>All Events (<%= Event.all.count %>)</h1>
-  <% unless Event.upcoming.empty? %>
+  <% unless @upcoming_events.empty? %>
     <div class="my-4">
       <h3 class="text-info pb-2">Upcoming events</h3>
       <div class="row">
-        <% Event.upcoming.each do |event| %>
+        <% @upcoming_events.each do |event| %>
           <div class="col-md-6 col-lg-4 card shadow">
             <%= render event %>
           </div>
@@ -22,11 +22,11 @@
       </div>
     </div>
   <% end %>
-  <% unless Event.past.empty? %>
+  <% unless @past_events.empty? %>
     <div class="my-4">
       <h3 class="text-warning">Previous events</h3>
       <div class="row">
-        <% Event.past.each do |event| %>
+        <% @past_events.each do |event| %>
           <div class="col-md-6 col-lg-4 card shadow">
             <%= render event %>
           </div>
