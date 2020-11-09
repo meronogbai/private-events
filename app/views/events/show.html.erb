@@ -1,0 +1,14 @@
+<h1>Event</h1>
+<p>
+  <strong>Location</strong><br />
+  <%= @event.location %></p>
+<p>
+  <strong>About Event</strong><br />
+  <%= @event.description %>
+</p>
+<h4><%= pluralize(@event.attendees.count, 'Attendee')%></h4>
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= attendee.username %></li>
+  <% end %>
+</ul>

@@ -4,12 +4,18 @@
     <title>PrivateEvents</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info alert-dismissible fade show">
+        <%= msg %>
+      </div>
+    <% end %>
     <%= yield %>
+    </div>
   </body>
 </html>

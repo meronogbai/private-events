@@ -1,0 +1,38 @@
+<h1>Events Attending</h1>
+<% unless @created_events.empty? %>
+  <h6>Created Events</h6>
+  <div class="row">
+    <% @created_events.each do |event| %>
+      <div class="col-md-6 col-lg-4 card shadow">
+        <%= render event %>
+      </div>
+    <% end %>
+  </div>
+  <hr />
+<% end %>
+
+<h4><%= pluralize(@user.attended_events.count, 'Event')%></h4>
+<% unless @upcoming_events.empty? %>
+  <div class="my-3">
+    <h6>Upcoming events</h6>
+    <div class="row">
+      <% @upcoming_events.each do |event| %>
+        <div class="col-md-6 col-lg-4 card shadow">
+          <%= render event %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<% unless @past_events.empty? %>
+  <div class="my-3">
+    <h6>Previous events</h6>
+    <div class="row">
+      <% @past_events.each do |event| %>
+        <div class="col-md-6 col-lg-4 card shadow">
+          <%= render event %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
