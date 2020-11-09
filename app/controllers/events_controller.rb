@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
   def create
     event = Event.new(event_params)
+    event.creator_id = session[:user_id]
     if event.save
       flash[:success] = 'You have created a new event!'
       redirect_to event_path(event)
