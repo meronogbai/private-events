@@ -15,6 +15,9 @@ class EventsController < ApplicationController
     if event.save
       flash[:success] = 'You have created a new event!'
       redirect_to event_path(event)
+    else
+      flash[:alert] = "You couldn't create a new event."
+      render 'new'
     end
   end
 
