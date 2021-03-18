@@ -1,5 +1,5 @@
 <h1>Events Attending</h1>
-<% unless @created_events.empty? %>
+<% if !@created_events.nil? && !@created_events.empty? %>
   <h6>Created Events</h6>
   <div class="row">
     <% @created_events.each do |event| %>
@@ -12,7 +12,7 @@
 <% end %>
 
 <h4><%= pluralize(@user.attended_events.count, 'Event')%></h4>
-<% unless @upcoming_events.empty? %>
+<% if !@upcoming_events.nil? && !@upcoming_events.empty? %>
   <div class="my-3">
     <h6>Upcoming events</h6>
     <div class="row">
@@ -24,7 +24,7 @@
     </div>
   </div>
 <% end %>
-<% unless @past_events.empty? %>
+<%  if !@past_events.nil? && !@past_events.empty? %>
   <div class="my-3">
     <h6>Previous events</h6>
     <div class="row">
